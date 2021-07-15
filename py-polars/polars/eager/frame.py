@@ -2035,26 +2035,13 @@ class DataFrame:
             df._df.shrink_to_fit()
             return df
 
-    def hash_rows(
-        self, k0: int = 0, k1: int = 1, k2: int = 2, k3: int = 3
-    ) -> "pl.Series":
+    def hash_rows(self) -> "pl.Series":
         """
         Hash and combine the rows in this DataFrame.
 
         Hash value is UInt64
-
-        Parameters
-        ----------
-        k0
-            seed parameter
-        k1
-            seed parameter
-        k2
-            seed parameter
-        k3
-            seed parameter
         """
-        return pl.wrap_s(self._df.hash_rows(k0, k1, k2, k3))
+        return pl.wrap_s(self._df.hash_rows())
 
 
 class GroupBy:
